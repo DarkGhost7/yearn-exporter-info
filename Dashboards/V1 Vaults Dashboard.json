@@ -1,0 +1,1141 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.3.5"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 10,
+      "fillGradient": 1,
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "expr": "sort(yearn_timing{vault!=\"registry\"})",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 5,
+          "legendFormat": "{{vault}}",
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Yearn Timing",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:262",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:263",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "decimals": 12,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 6
+      },
+      "hiddenSeries": false,
+      "id": 16,
+      "legend": {
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(yearn{param=\"virtual price\"}[2m])",
+          "interval": "",
+          "legendFormat": "{{vault}}",
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Virtual Price - Rate of Increase",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3977",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3978",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "decimals": 6,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 6
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "expr": "yearn{param=\"virtual price\",vault=\"GUSD\"}",
+          "interval": "",
+          "legendFormat": "yvGUSD",
+          "queryType": "randomWalk",
+          "refId": "A"
+        },
+        {
+          "expr": "yearn{param=\"virtual price\",vault=\"curve.fi/3pool\"}",
+          "interval": "",
+          "legendFormat": "yv3Pool",
+          "refId": "B"
+        },
+        {
+          "expr": "yearn{param=\"virtual price\",vault=\"curve.fi/y\"}",
+          "interval": "",
+          "legendFormat": "yvUSD",
+          "refId": "C"
+        },
+        {
+          "expr": "yearn{param=\"virtual price\",vault=\"curve.fi/busd\"}",
+          "interval": "",
+          "legendFormat": "yvBUSD",
+          "refId": "D"
+        },
+        {
+          "expr": "yearn{param=\"virtual price\",vault=\"curve.fi/sbtc\"}",
+          "interval": "",
+          "legendFormat": "yvSBTC",
+          "refId": "E"
+        },
+        {
+          "expr": "yearn{param=\"virtual price\",vault=\"curve.fi/compound\"}",
+          "interval": "",
+          "legendFormat": "yvCOMP",
+          "refId": "F"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Virtual Price",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1936",
+          "format": "short",
+          "label": "Virtual Price",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1937",
+          "format": "string",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "1.003",
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "decimals": 5,
+      "description": "Yearn Vault Balances",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 6,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "interval": "",
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"curve.fi/y\"}",
+          "interval": "",
+          "legendFormat": "yvUSD",
+          "refId": "I"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"DAI\"}",
+          "interval": "",
+          "legendFormat": "yvDAI",
+          "queryType": "randomWalk",
+          "refId": "A"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"curve.fi/3pool\"}",
+          "interval": "",
+          "legendFormat": "yv3Pool",
+          "refId": "J"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"curve.fi/busd\"}",
+          "interval": "",
+          "legendFormat": "yvBUSD",
+          "refId": "E"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"USDC\"}",
+          "interval": "",
+          "legendFormat": "yvUSDC",
+          "refId": "F"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"TUSD\"}",
+          "interval": "",
+          "legendFormat": "yvTUSD",
+          "refId": "D"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"aLINK\"}",
+          "interval": "",
+          "legendFormat": "yvALINK",
+          "refId": "H"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"GUSD\"}",
+          "interval": "",
+          "legendFormat": "yvGUSD",
+          "refId": "B"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"curve.fi/compound\"}",
+          "interval": "",
+          "legendFormat": "yvCOMP",
+          "refId": "M"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"WETH\"}",
+          "interval": "",
+          "legendFormat": "yvWETH",
+          "refId": "K"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"LINK\"}",
+          "interval": "",
+          "legendFormat": "yvLINK",
+          "refId": "C"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"YFI\"}",
+          "interval": "",
+          "legendFormat": "yvYFI",
+          "refId": "L"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"curve.fi/sbtc\"}",
+          "interval": "",
+          "legendFormat": "yvSBTC",
+          "refId": "G"
+        },
+        {
+          "expr": "yearn{param=\"vault balance\",vault=\"curve.fi/compound\"}",
+          "interval": "",
+          "legendFormat": "yvCOMP",
+          "refId": "N"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Vault Balances",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {}
+        }
+      ],
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:566",
+          "decimals": 2,
+          "format": "short",
+          "label": "Vault Shares ",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:567",
+          "decimals": 4,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "decimals": 2,
+      "description": "Boosts for the Yearn Vaults",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": 100,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "yearn{param=\"boost\",vault=\"curve.fi/compound\"}",
+          "interval": "",
+          "legendFormat": "yvCOMP",
+          "refId": "E"
+        },
+        {
+          "expr": "yearn{param=\"boost\",vault=\"curve.fi/3pool\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "yv3Pool",
+          "queryType": "randomWalk",
+          "refId": "A"
+        },
+        {
+          "expr": "yearn{param=\"boost\",vault=\"curve.fi/sbtc\"}",
+          "interval": "",
+          "legendFormat": "yvSBTC",
+          "refId": "C"
+        },
+        {
+          "expr": "yearn{param=\"boost\",vault=\"curve.fi/busd\"}",
+          "interval": "",
+          "legendFormat": "yvBUSD",
+          "refId": "B"
+        },
+        {
+          "expr": "yearn{param=\"boost\",vault=\"curve.fi/y\"}",
+          "interval": "",
+          "legendFormat": "yvUSD",
+          "refId": "D"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Boosties",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1662",
+          "format": "percentunit",
+          "label": "Boosties",
+          "logBase": 1,
+          "max": null,
+          "min": "1.20",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1663",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "decimals": 5,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "purple",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "yvYFI"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "yvSBTC"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 22
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "interval": "1m",
+      "legend": {
+        "avg": false,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "expr": "yearn{param=\"available\",vault=\"curve.fi/3pool\"}",
+          "interval": "",
+          "legendFormat": "yv3Pool",
+          "refId": "M"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"curve.fi/compound\"}",
+          "interval": "",
+          "legendFormat": "yvCOMP",
+          "refId": "L"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"curve.fi/busd\"}",
+          "interval": "",
+          "legendFormat": "yvBUSD",
+          "refId": "J"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"TUSD\"}",
+          "interval": "",
+          "legendFormat": "yvTUSD",
+          "refId": "D"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"USDC\"}",
+          "interval": "",
+          "legendFormat": "yvUSDC",
+          "refId": "F"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"YFI\"}",
+          "interval": "",
+          "legendFormat": "yvYFI",
+          "refId": "H"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"curve.fi/sbtc\"}",
+          "interval": "",
+          "legendFormat": "yvSBTC",
+          "refId": "K"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"LINK\"}",
+          "interval": "",
+          "legendFormat": "yvLINK",
+          "refId": "E"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"USDT\"}",
+          "interval": "",
+          "legendFormat": "yvUSDT",
+          "refId": "G"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"WETH\"}",
+          "interval": "",
+          "legendFormat": "yvWETH",
+          "refId": "I"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"GUSD\"}",
+          "interval": "",
+          "legendFormat": "yvGUSD",
+          "refId": "B"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"DAI\"}",
+          "interval": "",
+          "legendFormat": "yvDAI",
+          "queryType": "randomWalk",
+          "refId": "A"
+        },
+        {
+          "expr": "yearn{param=\"available\",vault=\"curve.fi/y\"}",
+          "interval": "",
+          "legendFormat": "yvUSD",
+          "refId": "C"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Vault Assets Free",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:626",
+          "format": "currencyUSD",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:627",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 22
+      },
+      "id": 6,
+      "options": {
+        "displayMode": "basic",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "7.3.5",
+      "targets": [
+        {
+          "expr": "yearn{param=\"strategy buffer\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{vault}}",
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Strategy Buffer",
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "displayName": "CRV "
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 6,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 30
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "interval": "15s",
+      "legend": {
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "yearn{param=\"crv price\", job=\"yearn\", vault=\"curve.fi/3pool\"}",
+          "interval": "15s",
+          "intervalFactor": 3,
+          "legendFormat": "Crv Price",
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CRV Price",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2687",
+          "format": "currencyUSD",
+          "label": "Price",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2688",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "V1 Vaults",
+  "uid": "6n3HB1hMz",
+  "version": 22
+}
