@@ -1,7 +1,7 @@
 # API Info for Yearn Exporter
 ## exporter_v1
 Exporter for v1 Vaults. Default http server is `http://localhost:8800`.
-To run the `exporter_v1()` method navigate to the directory where you copied yearn-exporter, open a console, and type `brownie run yearn exporter_v1 --network mainnet`.
+To run the `exporter_v1()` method navigate to the directory where you copied [yearn-exporter](https://github.com/iearn-finance/yearn-exporter), open a console, and type `brownie run yearn exporter_v1 --network mainnet`.
 ### yearn
 #### param
 ##### `available`
@@ -72,7 +72,7 @@ Inculdes the registry and its load time in milliseconds
 Inculdes the vaults and their load time in milliseconds
 ## exporter_v2
 Exporter for v2 Vaults. Default http server is `http://localhost:8801`.
-To run the `exporter_v2()` method navigate to the directory where you copied yearn-exporter, open a console, and type `brownie run yearn exporter_v2 --network mainnet`.
+To run the `exporter_v2()` method navigate to the directory where you copied [yearn-exporter](https://github.com/iearn-finance/yearn-exporter), open a console, and type `brownie run yearn exporter_v2 --network mainnet`.
 ### yearn_vault
 #### param
 `totalAssets`
