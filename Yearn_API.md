@@ -1,3 +1,9 @@
+---
+layout: page
+title: "Yearn API"
+permalink: /Yearn-API/
+---
+
 # API Info for Yearn Exporter
 ## exporter_v1
 Exporter for v1 Vaults. Default http server is `http://localhost:8800`.
