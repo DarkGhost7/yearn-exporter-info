@@ -1,8 +1,4 @@
----
-tags: api
----
-
-# API info for Yearn Exporter
+# API Info for Yearn Exporter
 ## exporter
 - Exporter for v1 Vaults default http server is `http://localhost:8800`
 ### yearn
