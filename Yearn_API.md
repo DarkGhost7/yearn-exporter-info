@@ -72,28 +72,28 @@
     Exporter for v2 Vaults default http server is `http://localhost:8801`
 ### yearn_vault
 #### param
-    `totalAssets`
-        - The total quantity of all assets under control of this Vault, whether they're loaned out to a Strategy, or currently held in the Vault.
-    `totalBalanceSheet`
-        Provide an accurate estimate for the total amount of assets (principle + return) that the strategies are currently managing, denominated in terms of ?.
-    `maxAvailableShares`
-        Determines the total quantity of shares this Vault can provide, factoring in assets currently residing in the Vault, as well as those deployed to strategies.
-    `pricePerShare`
-        Price for a single vault share
-    `debtOutstanding`
-    `creditAvailable`
-    `expectedReturn`
-    `totalSupply`
-    `emergencyShutdown`
-        True or false: 0 = false 1 = true
-        (more info here)[https://app.gitbook.com/@lehnberg/s/yearn-docs-test/untitled-1#method-setemergencyshutdown]
-    `depositLimit`
-        Max amount of tokens able to be deposited in this vault in lp shares.
-    `debtLimit`
-    `totalDebt`
-    `lastReport`
-    `managementFee`
-    `performanceFee`
+`totalAssets`
+    - The total quantity of all assets under control of this Vault, whether they're loaned out to a Strategy, or currently held in the Vault.
+`totalBalanceSheet`
+    - Provide an accurate estimate for the total amount of assets (principle + return) that the strategies are currently managing, denominated in terms of ?.
+`maxAvailableShares`
+    - Determines the total quantity of shares this Vault can provide, factoring in assets currently residing in the Vault, as well as those deployed to strategies.
+`pricePerShare`
+    - Price for a single vault share
+`debtOutstanding`
+`creditAvailable`
+`expectedReturn`
+`totalSupply`
+`emergencyShutdown`
+    - True or false: 0 = false 1 = true
+    - (more info here)[https://app.gitbook.com/@lehnberg/s/yearn-docs-test/untitled-1#method-setemergencyshutdown]
+`depositLimit`
+    - Max amount of tokens able to be deposited in this vault in lp shares.
+`debtLimit`
+`totalDebt`
+`lastReport`
+`managementFee`
+`performanceFee`
 #### vault
     USDC
     DAI
