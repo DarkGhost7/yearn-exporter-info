@@ -17,7 +17,7 @@ Exporter for v1 Vaults. Default http server is `http://localhost:8800`. To run t
 
 **`available`**
 
-Liquidity in Vault - Invested in all Strategies. Amount in LP tokens that is free to withdrawal without a fee.
+Amount of shares that are free to withdrawal without a fee. \(Liquidity in Vault - Invested in all Strategies\) 
 
 **`base price`**
 
@@ -79,11 +79,11 @@ From 0 to 1: with 1 meaning the vault has all liquidity allocated to strategies.
 
 **`vault balance`**
 
-Total amount of liquidity, in the vault lp token, in the vault. ?
+Total amount of shares in the vault. \( Shares invested in Strategy + Shares not invested in Strategy\)
 
 **`vault total`**
 
-?
+Total amount of shares in the whole vault 
 
 **`vecrv balance`**
 
@@ -131,7 +131,7 @@ The total quantity of all assets under control of this Vault, whether they're lo
 
  `totalBalanceSheet` 
 
-Provide an accurate estimate for the total amount of assets \(principle + return\) that the strategies are currently managing, denominated in terms of ?.
+Provides an accurate estimate for the total amount of assets \(principle + return\) that the strategies are currently managing, denominated in terms of ?.
 
  `maxAvailableShares` 
 
@@ -139,9 +139,11 @@ Determines the total quantity of shares this Vault can provide, factoring in ass
 
  `pricePerShare` 
 
-Price for a single vault share.
+Price for a single vault share - returns the price of the Vault’s wrapped token, denominated in the unwrapped native token. More info [here](https://app.gitbook.com/@lehnberg/s/yearn-docs-test/developers/yvaults-documentation/vault-interfaces#function-getpriceperfullshare)
 
  `debtOutstanding`
+
+Total debt the whole vault has outstanding
 
  `creditAvailable`
 
@@ -158,6 +160,8 @@ True or false: 0 = false 1 = true [more info here](https://app.gitbook.com/@lehn
 Max amount of tokens able to be deposited in this vault in lp shares.
 
  `debtLimit`
+
+Current max debt limit the vault is able to take on across all strategies
 
  `totalDebt`
 
