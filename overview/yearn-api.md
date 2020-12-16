@@ -2,7 +2,7 @@
 layout: page
 title: Yearn API
 permalink: /Yearn-API/
-description: Describes the Yearn Exporter API and what it outputs.
+description: Describes the Yearn Exporter API and what its outputs mean.
 ---
 
 # Yearn API
@@ -25,23 +25,23 @@ Virtual Price the vault started at.
 
 **`boost`**
 
-Current Boost
+Current Boost.
 
 **`crv apy`**
 
-Lowest amount of CRV APY generated with 0 boost
+Lowest amount of CRV APY generated with 0 boost.
 
 **`crv price`**
 
-Current price of CRV
+The current price of CRV.
 
 **`crv reward rate`**
 
-Curve APY \* Boost ?
+Curve APY \* Boost?
 
 **`earned`**
 
-Current amount of accumulated CRV rewards
+Current amount of accumulated CRV rewards.
 
 **`gauge balance`**
 
@@ -49,29 +49,29 @@ Amount of LP tokens deposited in the gauge.
 
 **`gauge total`**
 
-Total deposited in the gauge
+Total deposited in the gauge.
 
 **`inflation rate`**
 
 **`max boost`**
 
-Max boost you can get with that % of the gauge
+Max boost you can get with that % of the gauge.
 
 **`min vecrv`**
 
-How much veCRV you need to get max boost
+How much veCRV you need to get max boost.
 
 **`relative weight`**
 
-% of all CRV rewards this curve pool gets
+% of all CRV rewards this curve pool gets.
 
 **`share price`**
 
-getPricePerFullShare\(\)/1e18
+getPricePerFullShare\(\)/1e18.
 
 **`strategy balance`**
 
-Current amount of lp tokens allocated to the strategy
+Current amount of lp tokens allocated to the strategy.
 
 **`strategy buffer`**
 
@@ -87,21 +87,21 @@ Total amount of liquidity, in the vault lp token, in the vault. ?
 
 **`vecrv balance`**
 
-Yearn total veCRV voting power
+Yearn total veCRV voting power.
 
 **`vecrv total`**
 
-Total voting power of the Curve Dao
+Total voting power of the Curve Dao.
 
 **`virtual price`**
 
 **`working balance`**
 
-\(Gauge balance / \(2.5 \* Boost\)\) - Balance which is being rewarded
+\(Gauge balance / \(2.5 \* Boost\)\) - Balance which is being rewarded.
 
 **`working total`**
 
-Total balance which is rewarded, from which you can calculate avg boost
+Total balance which is rewarded, from which you can calculate avg boost.
 
 #### Vaults
 
@@ -111,11 +111,11 @@ Total balance which is rewarded, from which you can calculate avg boost
 
 #### load
 
-Inculdes the registry and its load time in milliseconds
+Inculdes the registry and its load time in milliseconds.
 
 #### describe
 
-Inculdes the vaults and their load time in milliseconds
+Inculdes the vaults and their load time in milliseconds.
 
 ## exporter\_v2
 
@@ -151,7 +151,7 @@ Price for a single vault share.
 
  `emergencyShutdown` 
 
-True or false: 0 = false 1 = true [more info here](https://app.gitbook.com/@lehnberg/s/yearn-docs-test/untitled-1#method-setemergencyshutdown)
+True or false: 0 = false 1 = true [more info here](https://app.gitbook.com/@lehnberg/s/yearn-docs-test/untitled-1#method-setemergencyshutdown).
 
  `depositLimit` 
 
