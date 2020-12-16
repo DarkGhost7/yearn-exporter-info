@@ -8,9 +8,12 @@ description: Tips and Tricks. This is for windows
 
 ### Things you will need
 
-* [Infura account to query the blockchain with](https://infura.io/login) - For brownie
-  * make a project and put in the secret and project id after the =
-  * run cmd and type along with your keys
+## Infura
+
+* [Infura account to query the blockchain with](https://infura.io/login) 
+  * For brownie
+  * Make a project and put in the secret and project id after the =
+  * Run cmd and type the code below and add in your newly generated keys
 
 {% tabs %}
 {% tab title="CMD" %}
@@ -21,7 +24,7 @@ set WEB3_INFRUA_PROJECT_ID=
 {% endtab %}
 {% endtabs %}
 
-
+## Prometheus
 
 * [Prometheus](https://prometheus.io/download/)
   * Below is the config you can use to feed Yearn-Exporter into prometheus. This has to have exact spacing or it will throw an error. 
@@ -77,14 +80,37 @@ scrape_configs:
 {% endtab %}
 {% endtabs %}
 
+## Python
+
 * Python
-* Brownie
-* etherscan account and [api key](https://etherscan.io/myapikey)
-  * Add `ETHERSCAN_TOKEN` as a variable in windows under user variables
-    * you can either add it manually or alternatively you can run `set ETHERSCAN_TOKEN=yourtokenkey` in cmd
-  * Make its value your Api-Key Token
+
+  * install from [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
+## Brownie
+
+* Check if pip is installed via
+
+```text
+C:\> py -m pip --version
+pip X.Y.Z from ...\site-packages\pip (python X.Y)
+```
+
+If it is not install pip from here [https://pip.pypa.io/en/stable/installing/](https://pip.pypa.io/en/stable/installing/) then
+
+```text
+pip install eth-brownie
+```
+
+## Etherscan API key
+
+* Make an Etherscan account and [api key](https://etherscan.io/myapikey)
+* Add `ETHERSCAN_TOKEN` as a variable in windows under user variables
+  * you can either add it manually or alternatively you can run `set ETHERSCAN_TOKEN=yourtokenkey` in cmd
+* Make its value your Api-Key Token
 
 ![](.gitbook/assets/envirvari.jpg)
+
+## Yearn Exporter - Modifications
 
 * If using Yearn-Exporter on your own computer and not a pre-made docker implementation \(to be released\) then you will need your own Infura Key. This has a 100k request limit and yearn-exporter is currently not optimized for multi-calls as of yet; therefore, you will need to skip some blocks to stay within the free account limits. I have found that sleeping for 250 ms should be sufficient. Modify `yearn.py`as follows.
 
@@ -152,10 +178,10 @@ def exporter_v2():
 {% endtab %}
 {% endtabs %}
 
-The time.sleep\(\) functions have been added to the exporter\_v1 and v2 methods, along with importing time at the top of the file. You can adjust sleep time to your preference and visit your infura project dashboard to view how often calls are happening. 
+The time.sleep\(\) functions have been added to the exporter\_v1 and v2 methods, along with importing time at the top of the file. You can adjust sleep time to your preference and visit [your infura project dashboard](https://infura.io/dashboard/ethereum) to view how often calls are happening. 
 
 * [Grafana](https://grafana.com/get)
-  * After installing go to settings&gt;Data Sources&gt;Add Data Source
+  * After installing go to settings &gt; Data Sources &gt; Add Data Source
   * Select Prometheus
     * URL:  http://yourIPv4address:9090
     * Access: Browser
