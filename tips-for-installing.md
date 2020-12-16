@@ -9,6 +9,20 @@ description: Tips and Tricks. This is for windows
 ### Things you will need
 
 * [Infura account to query the blockchain with](https://infura.io/login) - For brownie
+  * make a project and put in the secret and project id after the =
+  * run cmd and type along with your keys
+
+{% tabs %}
+{% tab title="CMD" %}
+```text
+set WEB3_INFURA_API_SECRET=
+set WEB3_INFRUA_PROJECT_ID=
+```
+{% endtab %}
+{% endtabs %}
+
+
+
 * [Prometheus](https://prometheus.io/download/)
   * Below is the config you can use to feed Yearn-Exporter into prometheus. This has to have exact spacing or it will throw an error. 
 
@@ -67,6 +81,7 @@ scrape_configs:
 * Brownie
 * etherscan account and [api key](https://etherscan.io/myapikey)
   * Add `ETHERSCAN_TOKEN` as a variable in windows under user variables
+    * you can either add it manually or alternatively you can run `set ETHERSCAN_TOKEN=yourtokenkey` in cmd
   * Make its value your Api-Key Token
 
 ![](.gitbook/assets/envirvari.jpg)
