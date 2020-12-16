@@ -6,3 +6,7 @@
 
 * [Yearn API](overview/yearn-api.md)
 
+---
+
+* [Tips for installing](tips-for-installing.md)
+
