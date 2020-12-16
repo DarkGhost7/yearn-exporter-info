@@ -1,5 +1,5 @@
 ---
-description: Tips and Tricks
+description: Tips and Tricks. This is for windows
 ---
 
 # Tips for installing
