@@ -9,4 +9,5 @@
 ---
 
 * [Tips for installing](tips-for-installing.md)
+* [Running Everything](running-everything.md)
 
