@@ -95,6 +95,8 @@ Total voting power of the Curve Dao.
 
 **`virtual price`**
 
+Price of the underlying curve pool
+
 **`working balance`**
 
 \(Gauge balance / \(2.5 \* Boost\)\) - Balance which is being rewarded.
