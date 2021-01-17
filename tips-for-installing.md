@@ -186,5 +186,5 @@ The time.sleep\(\) functions have been added to the exporter\_v1 and v2 methods,
     * URL:  http://yourIPv4address:9090
     * Access: Browser
     * Save and test! Make sure yearn exporter is running and prometheus is also running. If it is working it will show green. 
-  * Import pre-made dashboards found [here](https://github.com/DarkGhost7/yearn-exporter-info/tree/main/Dashboards) by + \(create\) &gt; import &gt; upload json file
+  * Import pre-made dashboards found [here](https://github.com/DarkGhost7/yearn-exporter-info/tree/master/Dashboards) by + \(create\) &gt; import &gt; upload json file
 
