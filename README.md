@@ -1,6 +1,6 @@
 # Yearn-Exporter-Intro
 
-Info about the [Yearn Exporter](https://github.com/iearn-finance/yearn-exporter) and my pre-made Dashboards for Grafana. The Yearn Exporter is a tool to output on-chain numeric data about the Yearn Vaults and feed it into Prometheus so that users can track vault stats \(v1 and v2 vaults\) on a Grafana dashboard such as the ones below.
+Info about the [Yearn Exporter](https://github.com/iearn-finance/yearn-exporter) and my pre-made Dashboards for Grafana. The Yearn Exporter is a tool to output on-chain numeric data about the Yearn Vaults and feed it into Prometheus so that users can track vault stats \(v1 and v2 vaults\) on a Grafana dashboard such as the ones below. If you want to add to this guide you can find it [here](https://github.com/DarkGhost7/yearn-exporter-info).
 
  
 
