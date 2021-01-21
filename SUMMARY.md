@@ -6,8 +6,8 @@
 
 * [Yearn API](overview/yearn-api.md)
 
----
+## Installing
 
-* [Tips for installing](tips-for-installing.md)
-* [Running Everything](running-everything.md)
+* [Tips for Installing](installing/tips-for-installing.md)
+* [Running Everything](installing/running-everything.md)
 

@@ -2,7 +2,7 @@
 description: Tips and Tricks. This is for windows
 ---
 
-# Tips for installing
+# Tips for Installing
 
 ## Getting Yearn Exporter Working
 
@@ -108,7 +108,7 @@ pip install eth-brownie
   * you can either add it manually or alternatively you can run `set ETHERSCAN_TOKEN=yourtokenkey` in cmd
 * Make its value your Api-Key Token
 
-![](.gitbook/assets/envirvari.jpg)
+![](../.gitbook/assets/envirvari.jpg)
 
 ## Yearn Exporter - Modifications
 
