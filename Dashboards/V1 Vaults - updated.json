@@ -1,4 +1,40 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.4.0"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -15,7 +51,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
+  "id": null,
   "links": [],
   "panels": [
     {
@@ -23,115 +59,9 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
-      "description": "Yearn Timing",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 10,
-      "fillGradient": 1,
-      "gridPos": {
-        "h": 6,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "hiddenSeries": false,
-      "id": 2,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": false
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.6",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": true,
-      "targets": [
-        {
-          "expr": "sort(yearn_timing{instance=\"localhost:8800\", vault!=\"registry\"})",
-          "instant": false,
-          "interval": "",
-          "intervalFactor": 5,
-          "legendFormat": "{{vault}}",
-          "queryType": "randomWalk",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "How long it takes to load yearn data",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:262",
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:263",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 12,
-      "description": "Rate of increase of Vault Share price. If this goes up the vaults are selling their farmed asset for more vault tokens!",
+      "description": "Rate of increase of Vault Share price. If this goes up the vaults are selling their farmed asset for more vault tokens! This helps normalize and show harvests compared to other vaults. The larger the spikes the more assets sold on that harvest call. The table shows the max value harvested for the timeframe selected.",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -144,7 +74,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 6
+        "y": 0
       },
       "hiddenSeries": false,
       "id": 17,
@@ -152,8 +82,8 @@
         "alignAsTable": true,
         "avg": false,
         "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
+        "hideEmpty": false,
+        "hideZero": false,
         "max": true,
         "min": false,
         "rightSide": true,
@@ -171,7 +101,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -181,7 +111,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(yearn{param=\"share price\"}[2m])",
+          "expr": "rate(yearn{param=\"share price\", vault!=\"GUSD\"}[2m])",
           "interval": "",
           "legendFormat": "{{vault}}",
           "queryType": "randomWalk",
@@ -237,25 +167,15 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 6,
       "description": "The current price of the vault's lp token, should increase steadily as vault's farmed assets are sold.",
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "mappings": [],
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -266,7 +186,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 6
+        "y": 0
       },
       "hiddenSeries": false,
       "id": 10,
@@ -293,7 +213,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -332,10 +252,10 @@
         {
           "$$hashKey": "object:1936",
           "format": "short",
-          "label": "Virtual Price",
+          "label": "Share Price",
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0.74",
           "show": true
         },
         {
@@ -344,7 +264,7 @@
           "label": "",
           "logBase": 1,
           "max": null,
-          "min": "1.003",
+          "min": null,
           "show": false
         }
       ],
@@ -358,9 +278,9 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 12,
-      "description": "Rate of Increase of the underlying curve pools' shares",
+      "description": "Rate of Increase of the underlying curve pools' shares. If this goes up the curvepools are accruing swap fees. This helps normalize and show pool swap fees gained across curve pools. The larger the spikes the more swap fee gained for the pool. The table shows the max swap fee for the timeframe selected.",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -373,7 +293,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 8
       },
       "hiddenSeries": false,
       "id": 16,
@@ -398,7 +318,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -464,25 +384,15 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 6,
       "description": "Price of the underlying curvepools",
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "mappings": [],
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -493,7 +403,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 14
+        "y": 8
       },
       "hiddenSeries": false,
       "id": 18,
@@ -518,7 +428,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -583,7 +493,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 5,
       "description": "Yearn Vault Balances",
       "fieldConfig": {
@@ -598,7 +508,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 22
+        "y": 16
       },
       "hiddenSeries": false,
       "id": 4,
@@ -626,7 +536,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -694,9 +604,9 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 2,
-      "description": "Boosts for the Yearn Vaults",
+      "description": "Boosts for the Yearn Vaults. 100% is no boost, and 250% is max 2.5x boost. If a vault show 100% usually that means it has no funds in the vault.",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -709,7 +619,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 22
+        "y": 16
       },
       "hiddenSeries": false,
       "id": 8,
@@ -735,7 +645,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -800,28 +710,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 5,
       "description": "Vaults which have liquidity that is free to withdrawal. If not show on the side you will have a fee",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "continuous-GrYlRd"
-          },
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
-          "min": 0,
+          "color": {},
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "purple",
-                "value": null
-              }
-            ]
+            "steps": []
           },
           "unit": "currencyUSD"
         },
@@ -833,7 +731,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 30
+        "y": 24
       },
       "hiddenSeries": false,
       "id": 12,
@@ -861,7 +759,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -884,7 +782,7 @@
       "title": "Vault Assets Free",
       "tooltip": {
         "shared": true,
-        "sort": 0,
+        "sort": 2,
         "value_type": "individual"
       },
       "transformations": [],
@@ -923,16 +821,14 @@
       }
     },
     {
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
+      "description": "This shows the amount of funds deployed to the vaults' strategy. If it shows 0 its an error so ignore it.",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
+          "custom": {},
           "mappings": [],
           "max": 1,
           "min": 0,
@@ -957,7 +853,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 30
+        "y": 24
       },
       "id": 6,
       "options": {
@@ -970,11 +866,13 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "text": {}
       },
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "targets": [
         {
+          "exemplar": false,
           "expr": "sort(yearn{param=\"strategy buffer\"})",
           "format": "time_series",
           "instant": true,
@@ -987,7 +885,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Strategy Buffer",
+      "title": "Total Vault Funds in Strategy",
       "transparent": true,
       "type": "bargauge"
     },
@@ -996,7 +894,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 5,
       "description": "Yearn Vault Total",
       "fieldConfig": {
@@ -1011,7 +909,7 @@
         "h": 6,
         "w": 24,
         "x": 0,
-        "y": 38
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 19,
@@ -1038,7 +936,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1125,7 +1023,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1139,7 +1037,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 44
+        "y": 38
       },
       "hiddenSeries": false,
       "id": 14,
@@ -1160,7 +1058,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1222,10 +1120,116 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "description": "Yearn Timing",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 10,
+      "fillGradient": 1,
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 46
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": false,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "expr": "sort(yearn_timing{instance=\"localhost:8800\", vault!=\"registry\"})",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 5,
+          "legendFormat": "{{vault}}",
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "How long it takes to load yearn data",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:262",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:263",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1239,5 +1243,5 @@
   "timezone": "",
   "title": "V1 Vaults",
   "uid": "6n3HB1hMz",
-  "version": 26
+  "version": 2
 }
