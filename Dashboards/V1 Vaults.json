@@ -980,6 +980,24 @@
             },
             "replaceFields": true
           }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "V1 - Total Balance"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
         }
       ],
       "transparent": true,
@@ -1130,12 +1148,12 @@
     "list": []
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "V1 Vaults",
   "uid": "6n3HB1hMz",
-  "version": 4
+  "version": 5
 }
