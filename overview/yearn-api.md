@@ -199,7 +199,37 @@ Last time a strategy harvested in unix time
 
 `estimatedTotalAssets`
 
- `performanceFee` `activation` `debtLimit` `rateLimit` `lastReport` `totalDebt` `totalReturns` `collateralTarget` `getCompValInWei` `getCurrentPosition_supply` `getCurrentPosition_borrow` `getblocksUntilLiquidation` `netBalanceLent` `predictCompAccrued` `storedCollateralisation` `wantPrice`
+ `performanceFee` 
+
+`activation` 
+
+`debtLimit` 
+
+`rateLimit` 
+
+`lastReport` 
+
+`totalDebt`
+
+ `totalReturns`
+
+`collateralTarget`
+
+ `getCompValInWei`
+
+ `getCurrentPosition_supply`
+
+ `getCurrentPosition_borrow`
+
+ `getblocksUntilLiquidation`
+
+ `netBalanceLent` 
+
+`predictCompAccrued`
+
+ `storedCollateralisation`
+
+`wantPrice`
 
 #### strategy
 
