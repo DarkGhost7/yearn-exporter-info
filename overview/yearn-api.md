@@ -63,7 +63,7 @@ How much veCRV you need to get max boost.
 
 **`relative weight`**
 
-% of all CRV rewards this curve pool gets.
+% of all CRV rewards this curve pool gets. This weeks weights can also be viewed [here](https://dao.curve.fi/) and the future weights for next week can be viewed [here](https://dao.curve.fi/gaugeweight).
 
 **`share price`**
 
@@ -76,6 +76,10 @@ Current amount of lp tokens allocated to the strategy.
 **`strategy buffer`**
 
 From 0 to 1: with 1 meaning the vault has all liquidity allocated to strategies. ? \(minus some percent 5%?\)
+
+**`token price`**
+
+Base price \* virtual\_price. This is meant to provide a balance price incase the vault's base price for some reason didn't start at 1.
 
 **`vault balance`**
 
@@ -169,6 +173,8 @@ Current max debt limit the vault is able to take on across all strategies
 
 `lastReport` 
 
+Last time a strategy harvested in unix time
+
 `managementFee` 
 
 `performanceFee`
@@ -193,7 +199,37 @@ Current max debt limit the vault is able to take on across all strategies
 
 `estimatedTotalAssets`
 
- `performanceFee` `activation` `debtLimit` `rateLimit` `lastReport` `totalDebt` `totalReturns` `collateralTarget` `getCompValInWei` `getCurrentPosition_supply` `getCurrentPosition_borrow` `getblocksUntilLiquidation` `netBalanceLent` `predictCompAccrued` `storedCollateralisation` `wantPrice`
+ `performanceFee` 
+
+`activation` 
+
+`debtLimit` 
+
+`rateLimit` 
+
+`lastReport` 
+
+`totalDebt`
+
+ `totalReturns`
+
+`collateralTarget`
+
+ `getCompValInWei`
+
+ `getCurrentPosition_supply`
+
+ `getCurrentPosition_borrow`
+
+ `getblocksUntilLiquidation`
+
+ `netBalanceLent` 
+
+`predictCompAccrued`
+
+ `storedCollateralisation`
+
+`wantPrice`
 
 #### strategy
 
