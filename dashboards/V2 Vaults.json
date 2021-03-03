@@ -1,4 +1,40 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_DS_PROMETHEUS",
+      "label": "DS_PROMETHEUS",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.4.3"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -15,6 +51,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
+  "id": null,
   "links": [],
   "panels": [
     {
@@ -22,7 +59,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_DS_PROMETHEUS}",
       "description": "Rate of increase of Vault Share price. If this goes up the vaults are selling their farmed asset for more vault tokens! This helps normalize and show harvests compared to other vaults. The larger the spikes the more assets sold on that harvest call. The table shows the max value harvested for the timeframe selected.",
       "fieldConfig": {
         "defaults": {
@@ -126,7 +163,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_DS_PROMETHEUS}",
       "description": "The current price of the vault's lp token, should increase steadily as vault's farmed assets are sold.",
       "fieldConfig": {
         "defaults": {
@@ -230,7 +267,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_DS_PROMETHEUS}",
       "decimals": 7,
       "description": "Amount of the deposit token in the vault. This includes funds in all strategies + idle funds yet to be deployed.",
       "fieldConfig": {
@@ -335,7 +372,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_DS_PROMETHEUS}",
       "description": "Amount of the deposit asset in USD terms in the vault. This includes funds in all strategies + idle funds yet to be deployed.",
       "fieldConfig": {
         "defaults": {
@@ -443,7 +480,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -493,8 +530,9 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "yearn_vault{param=\"tvl\"} ",
+          "expr": "sum(yearn_vault{param=\"tvl\"})",
           "interval": "",
+          "intervalFactor": 1,
           "legendFormat": "{{vault}}",
           "queryType": "randomWalk",
           "refId": "A"
@@ -512,28 +550,17 @@
       },
       "transformations": [
         {
-          "id": "calculateField",
-          "options": {
-            "alias": "v2 - TVL",
-            "mode": "reduceRow",
-            "reduce": {
-              "reducer": "sum"
-            },
-            "replaceFields": true
-          }
-        },
-        {
           "id": "filterByValue",
           "options": {
             "filters": [
               {
                 "config": {
-                  "id": "equal",
+                  "id": "lowerOrEqual",
                   "options": {
                     "value": 0
                   }
                 },
-                "fieldName": "v2 - TVL"
+                "fieldName": "Value"
               }
             ],
             "match": "any",
@@ -556,7 +583,7 @@
           "decimals": 2,
           "format": "short",
           "label": "",
-          "logBase": 10,
+          "logBase": 1,
           "max": null,
           "min": null,
           "show": true
@@ -577,7 +604,7 @@
       }
     },
     {
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -650,7 +677,7 @@
       "type": "stat"
     },
     {
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_DS_PROMETHEUS}",
       "description": "0 is no 1 is yes",
       "fieldConfig": {
         "defaults": {
@@ -731,7 +758,7 @@
       "type": "stat"
     },
     {
-      "datasource": "DS_PROMETHEUS",
+      "datasource": "${DS_DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -813,12 +840,12 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "V2 Vaults",
-  "uid": "OnWa9KoMk",
-  "version": 2
+  "title": "V2 Vaults2",
+  "uid": "OnWa9KoMk2",
+  "version": 1
 }
