@@ -111,7 +111,7 @@ Total balance which is rewarded, from which you can calculate avg boost.
 
 ### address
 
-The vaults address deprecated for v1 vaults as "n/a" 
+The vault's address. Deprecated for v1 vaults as "n/a" 
 
 ### vault
 
@@ -127,7 +127,7 @@ This is the metrics for v2 vaults
 
 ### address
 
-This will show "n/a" if address doesnt exist or the vault is special else it will show the vaults contract address.
+This will show "n/a" if address doesn't exist or the vault is special else it will show the vaults contract address.
 
 ### experimental
 
@@ -189,13 +189,15 @@ Last time a strategy harvested in unix time
 
 ### version
 
-version type: "v1" or "v2" or "n/a". This for yearn\_vault this should all be "v2"
+version type: `v1` or `v2` or `n/a`. For `yearn_vault` this should all be `v2`.
 
 ## yearn\_strategy
 
-This is the metrics for v2 strategies and their smart contract methods
+Metrics for v2 strategies and their smart contract methods
 
 ### address
+
+This is the address of the strategy's vault.
 
 ### experimental
 
@@ -249,7 +251,29 @@ Is vault non-production or production.
 
 ### strategy
 
+The name of the strategy pulled from the contract `name` function.
+
 ### vault
 
+The name of the vault affixed with the vault version number
+
 ### version
+
+The vault version number usually "v2" could be "n/a" for special vaults.
+
+## iearn
+
+Metrics for Earn
+
+### address
+
+### param
+
+## ironbank
+
+Metrics for Cream v2 aka Ironbank
+
+### address
+
+### param
 
