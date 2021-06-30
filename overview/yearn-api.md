@@ -2,20 +2,20 @@
 layout: page
 title: Yearn API
 permalink: /Yearn-API/
-description: Describes the Yearn Exporter Metrics and what the outputs mean.
+description: >-
+  Describes the Yearn Exporter Metrics and what the outputs mean. This guide
+  assumes your using Docker thus the metric will show at localhost:8800/metrics
 ---
 
 # Yearn Exporter Metrics
 
-## exporter\_v1
+## yearn
 
-Exporter for v1 Vaults. Default http server is `http://localhost:8800`. To run the `exporter_v1()` method navigate to the directory where you copied [yearn-exporter](https://github.com/iearn-finance/yearn-exporter), open a console, and type `brownie run yearn exporter_v1 --network mainnet`.
+This metric holds v1 vaults' info.
 
-### yearn
+### param
 
-#### param
-
-**`available`**
+#### **`available`**
 
 Amount of shares that are free to withdrawal without a fee. \(Liquidity in Vault - Invested in all Strategies\) 
 
@@ -109,27 +109,33 @@ Price of the underlying curve pool
 
 Total balance which is rewarded, from which you can calculate avg boost.
 
-#### Vaults
+### address
 
-`aLink` `curve.fi/3pool` `curve.fi/busd` `curve.fi/compound` `curve.fi/gusd` `curve.fi/musd` `curve.fi/sbtc` `curve.fi/y` `DAI` `GUSD` `Link` `TUSD` `USDC` `USDT` `WETH` `YFI`
+The vaults address deprecated for v1 vaults as "n/a" 
 
-### yearn\_timing
+### vault
 
-#### load
+#### The v1 vault name
 
-Inculdes the registry and its load time in milliseconds.
+### version
 
-#### describe
+This is the vault version deprecated for v1 vaults as "n/a"
 
-Inculdes the vaults and their load time in milliseconds.
+## yearn\_vault
 
-## exporter\_v2
+This is the metrics for v2 vaults
 
-Exporter for v2 Vaults. Default http server is `http://localhost:8801`. To run the `exporter_v2()` method navigate to the directory where you copied [yearn-exporter](https://github.com/iearn-finance/yearn-exporter), open a console, and type `brownie run yearn exporter_v2 --network mainnet`.
+### address
 
-### yearn\_vault
+This will show "n/a" if address doesnt exist or the vault is special else it will show the vaults contract address.
 
-#### param
+### experimental
+
+Bool: True or False
+
+Is vault non-production or production.
+
+### param
 
 `totalAssets` 
 
@@ -179,15 +185,25 @@ Last time a strategy harvested in unix time
 
 `performanceFee`
 
-#### vault
+### vault
 
-`USDC`
+### version
 
- `DAI`
+version type: "v1" or "v2" or "n/a". This for yearn\_vault this should all be "v2"
 
-### yearn\_strategy
+## yearn\_strategy
 
-#### param
+This is the metrics for v2 strategies and their smart contract methods
+
+### address
+
+### experimental
+
+Bool: True or False
+
+Is vault non-production or production.
+
+### param
 
 `debtOutstanding`
 
@@ -231,35 +247,9 @@ Last time a strategy harvested in unix time
 
 `wantPrice`
 
-#### strategy
+### strategy
 
-`StrategyCreamCRV` 
+### vault
 
-`LeveragedDaiCompStrategyV2`
-
- `YearnWethCreamStratV2`
-
- `StrategyHegic`
-
- `StrategyHegicWBTC`
-
- `StrategyUniswapPairPickle`
-
-#### vault
-
-`USDC`
-
- `DAI`
-
-### yearn\_timing
-
-#### action
-
-describe
-
-#### vault
-
-`USDC` 
-
-`DAI`
+### version
 
