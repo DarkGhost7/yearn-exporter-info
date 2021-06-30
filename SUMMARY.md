@@ -2,12 +2,14 @@
 
 * [Yearn-Exporter-Intro](README.md)
 
-## Overview
-
-* [Yearn API](overview/yearn-api.md)
-
 ## Installing
 
-* [Tips for Installing](installing/tips-for-installing.md)
-* [Running Everything](installing/running-everything.md)
+* [How to Install](installing/how-to-install/README.md)
+  * [Running via Docker](installing/how-to-install/running-via-docker.md)
+  * [Running via Python](installing/how-to-install/running-via-python/README.md)
+    * [Running Everything](installing/how-to-install/running-via-python/running-everything.md)
+
+## Overview
+
+* [Yearn Exporter Metrics](overview/yearn-api.md)
 

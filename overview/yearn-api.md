@@ -2,10 +2,10 @@
 layout: page
 title: Yearn API
 permalink: /Yearn-API/
-description: Describes the Yearn Exporter API and what its outputs mean.
+description: Describes the Yearn Exporter Metrics and what the outputs mean.
 ---
 
-# Yearn API
+# Yearn Exporter Metrics
 
 ## exporter\_v1
 
