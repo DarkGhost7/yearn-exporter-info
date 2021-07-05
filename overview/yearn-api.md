@@ -19,10 +19,6 @@ This metric holds v1 vaults' info.
 
 Amount of shares that are free to withdrawal without a fee. \(Liquidity in Vault - Invested in all Strategies\) 
 
-**`base price`**
-
-Virtual Price the vault started at.
-
 **`boost`**
 
 Current Boost.
@@ -45,7 +41,7 @@ Current amount of accumulated CRV rewards.
 
 **`gauge balance`**
 
-Amount of LP tokens deposited in the gauge.
+Amount of LP tokens deposited in the gauge. ?
 
 **`gauge total`**
 
