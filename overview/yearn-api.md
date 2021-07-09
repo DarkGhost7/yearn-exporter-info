@@ -273,3 +273,49 @@ Metrics for Cream v2 aka Ironbank
 
 ### param
 
+`total supply`
+
+The total amount of tokens deposited for lending
+
+`total cash`
+
+```total supplied```
+
+\`\`
+
+```total borrows```
+
+\`\`
+
+```total reserves```
+
+\`\`
+
+```exchange rate```
+
+\`\`
+
+```token price```
+
+
+
+```underlying price```
+
+The underlying price of the deposit asset in USD
+
+```supply apy```
+
+The Annual Percentage Yield gained to supply the asset
+
+```borrow apy```
+
+The Annual Percentage Yield being paid to borrow the asset
+
+```utilizzation```
+
+Ratio of Lent / Supplied Assets from 0 to 1. 
+
+```tvl```
+
+Total Value Locked for that lending assets in USD.
+
